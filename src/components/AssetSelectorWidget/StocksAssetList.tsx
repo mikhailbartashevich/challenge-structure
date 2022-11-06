@@ -1,4 +1,5 @@
-import { STOCK_TEST_RESULT } from "@/pages/api/stocks";
+import { Instrument } from "@/types/api";
+import { useCallback, useEffect, useState } from "react";
 import StocksAssetItem from "./StocksAssetItem";
 
 export type StocksAssetListMsg = {
@@ -11,9 +12,29 @@ type Props = {
 };
 
 const StocksAssetList = ({ onMsg }: Props) => {
+  const [loading, setLoading] = useState(false);
+  const [stocks, setStocks] = useState<Instrument[]>([]);
+
+  const fetchStocks = useCallback(async () => {
+    setLoading(true);
+    fetch("/api/stocks")
+      .then((res) => res.json())
+      .then((data) => {
+        setStocks(data.result);
+        setLoading(false);
+      });
+  }, [setStocks]);
+
+  useEffect(() => {
+    fetchStocks();
+  }, [fetchStocks]);
+
+  if (!loading && (!stocks || !stocks.length)) {
+    return <div className="mb-[25px]">No stocks data...</div>;
+  }
   return (
     <div>
-      {STOCK_TEST_RESULT.slice(0, 4).map((stock) => (
+      {stocks.slice(0, 2).map((stock) => (
         <div key={stock.id} className="mb-[25px]">
           <StocksAssetItem
             stock={stock}

@@ -1,3 +1,4 @@
+import { Instrument } from "@/types/api";
 import { useCallback, useEffect, useState } from "react";
 import CryptoAssetItem from "./CryptoAssetItem";
 
@@ -12,7 +13,7 @@ type Props = {
 
 const CryptoAssetList = ({ onMsg }: Props) => {
   const [loading, setLoading] = useState(false);
-  const [coins, setCoins] = useState([]);
+  const [coins, setCoins] = useState<Instrument[]>([]);
 
   const fetchCoins = useCallback(async () => {
     setLoading(true);
@@ -29,7 +30,7 @@ const CryptoAssetList = ({ onMsg }: Props) => {
   }, [fetchCoins]);
 
   if (!loading && (!coins || !coins.length)) {
-    return <div className="mb-[25px]">No data...</div>;
+    return <div className="mb-[25px]">No coins data...</div>;
   }
 
   return (
