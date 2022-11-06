@@ -128,7 +128,7 @@ export default async (
       id: coin.id,
       name: coin.name,
       symbol: coin.symbol,
-      value: `$${Math.round(coin.quote.USD.price)}`,
+      value: Math.round((coin.quote.USD.price + Number.EPSILON) * 100) / 100,
       amount: Math.floor(Math.random() * 100),
     }));
   } catch (e) {
