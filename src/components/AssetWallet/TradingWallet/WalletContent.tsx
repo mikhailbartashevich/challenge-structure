@@ -1,6 +1,6 @@
 import Image from "next/image";
 import WalletContentItem from "./WalletContentItem";
-import ExchangeArrowsImg from "../../../assets/exchange-arrows.svg";
+import ExchangeArrowsImg from "../../../assets/exchange_arrows.svg";
 
 export type WalletContentMsg =
   | { type: "pay_with_item_clicked" }

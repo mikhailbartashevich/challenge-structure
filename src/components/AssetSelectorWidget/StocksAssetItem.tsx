@@ -1,5 +1,6 @@
 import { Instrument } from "@/types/api";
 import { useMemo } from "react";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
 type Props = {
   stock: Instrument;
@@ -32,9 +33,10 @@ const StocksAssetItem = ({ stock, onClick }: Props) => {
               {stock.symbol}
             </div>
             <div
-              className={`${amountClassName} font-normal  font-inter normal text-sm`}
+              className={`${amountClassName} font-normal  font-inter normal text-sm flex items-center`}
             >
-              {`${stock.amount}%`}
+              <div>{stock.amount > 0 ? <FaAngleUp /> : <FaAngleDown />}</div>
+              {`${Math.abs(stock.amount)}%`}
             </div>
           </div>
         </div>
