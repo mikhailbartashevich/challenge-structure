@@ -2,8 +2,8 @@ import notReachable from "@/tools/notReachable";
 import { useCallback, useState } from "react";
 import AssetSelectorWidget, {
   AssetSelectorWidgetMsg,
-} from "./AssetSelectorWidget";
-import AssetWallet, { AssetWalletMsg } from "./AssetWallet";
+} from "./AssetSelectorWidget/AssetSelectorWidget";
+import AssetWallet, { AssetWalletMsg } from "./AssetWallet/AssetWallet";
 
 type ModeState = { type: "asset_wallet" } | { type: "asset_selector" };
 
@@ -17,6 +17,7 @@ const TradeWidget = () => {
           setMode({ type: "asset_selector" });
           break;
         case "choose_pay_with_clicked":
+        case "trade_btn_clicked":
           // TODO: not used in MVP
           break;
         default:
@@ -49,4 +50,5 @@ const TradeWidget = () => {
       return notReachable(mode);
   }
 };
+
 export default TradeWidget;

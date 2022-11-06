@@ -12,13 +12,13 @@ const AssetSelectorWidget = ({ onMsg }: Props) => {
       <div>Which asset would you like to buy?</div>
       <div>Search assets input</div>
       <button
-        type="submit"
+        type="button"
         onClick={() => onMsg({ type: "crypto_asset_clicked", asset: "BTC" })}
       >
         <div>Crypto assets list</div>
       </button>
       <button
-        type="submit"
+        type="button"
         onClick={() => onMsg({ type: "stocks_asset_clicked", asset: "APPL" })}
       >
         <div>Srocks assets list</div>
