@@ -3,11 +3,9 @@ import { useCallback, useState } from "react";
 import Navigation, { NavigationMode, NavigationMsg } from "./Navigation";
 import TotalAmount from "./TotalAmount";
 import TradeButton, { TradeButtonMsg } from "./TradeButton";
+import TradingWallet, { TradingWalletMsg } from "./TradingWallet/TradingWallet";
 
-export type AssetWalletMsg =
-  | { type: "choose_asset_clicked" }
-  | { type: "choose_pay_with_clicked" }
-  | TradeButtonMsg;
+export type AssetWalletMsg = TradingWalletMsg | TradeButtonMsg;
 
 type Props = {
   onMsg(msg: AssetWalletMsg): void;
@@ -44,19 +42,11 @@ const AssetWallet = ({ onMsg }: Props) => {
 
   return (
     <div className="flex flex-col justify-between w-full h-full">
+      <Navigation mode={navigationMode} onMsg={onNavigationMsg} />
+      <TotalAmount />
       <div>
-        <Navigation mode={navigationMode} onMsg={onNavigationMsg} />
-      </div>
-      <div>
-        <TotalAmount />
-      </div>
-      <button
-        type="submit"
-        onClick={() => onMsg({ type: "choose_asset_clicked" })}
-      >
-        <div>Trading Wallet</div>
-      </button>
-      <div>
+        <TradingWallet onMsg={onMsg} />
+        <div className="mb-2" />
         <TradeButton asset="BTC" mode="BUY" onMsg={onTradeButtonMsg} />
       </div>
     </div>

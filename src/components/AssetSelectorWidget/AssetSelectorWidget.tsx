@@ -1,6 +1,7 @@
 export type AssetSelectorWidgetMsg =
   | { type: "crypto_asset_clicked"; asset: string } // TODO: union type for assets
-  | { type: "stocks_asset_clicked"; asset: string };
+  | { type: "stocks_asset_clicked"; asset: string }
+  | { type: "cancel_btn_clicked" };
 
 type Props = {
   onMsg(msg: AssetSelectorWidgetMsg): void;
@@ -23,7 +24,12 @@ const AssetSelectorWidget = ({ onMsg }: Props) => {
       >
         <div>Srocks assets list</div>
       </button>
-      <div>Cancel button</div>
+      <button
+        type="button"
+        onClick={() => onMsg({ type: "cancel_btn_clicked" })}
+      >
+        <div>Cancel button</div>
+      </button>
     </div>
   );
 };

@@ -13,10 +13,10 @@ const TradeWidget = () => {
   const onAssetWalletMsg = useCallback(
     (msg: AssetWalletMsg) => {
       switch (msg.type) {
-        case "choose_asset_clicked":
+        case "pay_with_item_clicked":
           setMode({ type: "asset_selector" });
           break;
-        case "choose_pay_with_clicked":
+        case "buy_item_clicked":
         case "trade_btn_clicked":
           // TODO: not used in MVP
           break;
@@ -32,6 +32,7 @@ const TradeWidget = () => {
       switch (msg.type) {
         case "crypto_asset_clicked":
         case "stocks_asset_clicked":
+        case "cancel_btn_clicked":
           setMode({ type: "asset_wallet" });
           break;
         default:
