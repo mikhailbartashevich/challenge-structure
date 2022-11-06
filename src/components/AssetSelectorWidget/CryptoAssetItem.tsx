@@ -19,11 +19,11 @@ const CryptoAssetItem = ({ coin, onClick }: Props) => {
               {coin.value}
             </div>
           </div>
-          <div className="flex justify-between w-full text-left">
-            <div className="font-normal text-[#8A8A8A] font-inter normal text-sm">
+          <div className="flex justify-between w-full text-[14px] text-left">
+            <div className="font-normal text-[#8A8A8A] font-inter normal">
               {coin.symbol}
             </div>
-            <div className="font-normal text-[#8A8A8A] font-inter normal text-sm">
+            <div className="font-normal text-[#8A8A8A] font-inter normal">
               {coin.amount}
             </div>
           </div>

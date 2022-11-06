@@ -3,8 +3,8 @@ import CryptoImg from "../../../assets/crypto.svg";
 
 const AssetHeader = () => {
   return (
-    <div className="flex justify-between items-center">
-      <div className="font-normal text-[#8A8A8A] font-inter normal text-sm">
+    <div className="flex justify-between items-center text-[14px]">
+      <div className="font-normal text-[#8A8A8A] font-inter normal">
         ETH Wallet: $29,778.36
       </div>
       <div className="flex items-center">

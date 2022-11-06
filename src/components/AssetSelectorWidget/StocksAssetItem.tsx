@@ -24,16 +24,16 @@ const StocksAssetItem = ({ stock, onClick }: Props) => {
             <div className="font-normal text-left text-[#262626] font-inter normal text-base">
               {stock.name}
             </div>
-            <div className="font-normal text-left text-[#262626] font-inter normal text-base">
+            <div className="font-normal text-left text-[#262626] font-inter normal text-sm">
               {stock.value}
             </div>
           </div>
-          <div className="flex justify-between w-full text-left">
-            <div className="font-normal text-[#8A8A8A] font-inter normal text-sm">
+          <div className="flex justify-between w-full text-[14px] text-left">
+            <div className="font-normal text-[#8A8A8A] font-inter normal ">
               {stock.symbol}
             </div>
             <div
-              className={`${amountClassName} font-normal  font-inter normal text-sm flex items-center`}
+              className={`${amountClassName} font-normal font-inter normal flex items-center`}
             >
               <div>{stock.amount > 0 ? <FaAngleUp /> : <FaAngleDown />}</div>
               {`${Math.abs(stock.amount)}%`}
