@@ -1,34 +1,41 @@
+import { Instrument } from "@/types/api";
+
 type Props = {
-  title: string;
-  asset: string;
+  stock: Instrument;
   onClick(): void;
 };
 
-const StocksAssetItem = ({ title, asset, onClick }: Props) => {
+const StocksAssetItem = ({ stock, onClick }: Props) => {
+  let amountClassName = "";
+  if (stock.amount === 0) {
+    amountClassName = "";
+  } else {
+    amountClassName = stock.amount > 0 ? "text-[#5EB242]" : "text-[#DB5940]";
+  }
   return (
-    <button className="p-[20px] w-full" type="button" onClick={onClick}>
-      <div className="flex justify-between items-center">
-        <div className="flex items-center">
-          <div className="mr-[20px] min-w-[64px] font-normal text-left text-[#262626] font-inter normal text-base">
-            {title}
+    <button className="w-full" type="button" onClick={onClick}>
+      <div className="flex items-center w-full">
+        <div className="shrink-0 w-[42px] h-[42px] text-[#EBEBEB] bg-white rounded-full border" />
+        <div className="shrink ml-[10px] w-full">
+          <div className="flex justify-between w-full text-left">
+            <div className="font-normal text-left text-[#262626] font-inter normal text-base">
+              {stock.name}
+            </div>
+            <div className="font-normal text-left text-[#262626] font-inter normal text-base">
+              {stock.value}
+            </div>
           </div>
-          <div className="mr-1 w-[25px]  h-[25px] text-[#EBEBEB] bg-white rounded-full border" />
-          <div className="font-normal text-[#262626] font-inter normal text-base">
-            {asset}
+          <div className="flex justify-between w-full text-left">
+            <div className="font-normal text-[#8A8A8A] font-inter normal text-sm">
+              {stock.symbol}
+            </div>
+            <div
+              className={`${amountClassName} font-normal text-[#8A8A8A] font-inter normal text-sm`}
+            >
+              {`${stock.amount}%`}
+            </div>
           </div>
         </div>
-        <svg
-          width="9"
-          height="16"
-          viewBox="0 0 9 16"
-          className="shrink-0 text-[#191919]"
-          fill="none"
-          stroke="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Chevron</title>
-          <path d="M1 1L8 8L1 15" strokeLinecap="round" />
-        </svg>
       </div>
     </button>
   );

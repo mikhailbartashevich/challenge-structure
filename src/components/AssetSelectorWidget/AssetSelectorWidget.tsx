@@ -1,4 +1,5 @@
 import CryptoAssetList from "./CryptoAssetList";
+import StocksAssetList from "./StocksAssetList";
 
 export type AssetSelectorWidgetMsg =
   | { type: "crypto_asset_clicked"; asset: string } // TODO: union type for assets
@@ -27,12 +28,8 @@ const AssetSelectorWidget = ({ onMsg }: Props) => {
       <div className="mb-[25px]" />
       <CryptoAssetList />
       <div className="w-full h-[1px] bg-[#EBEBEB]" />
-      <button
-        type="button"
-        onClick={() => onMsg({ type: "stocks_asset_clicked", asset: "APPL" })}
-      >
-        <div>Srocks assets list</div>
-      </button>
+      <div className="mb-[25px]" />
+      <StocksAssetList />
       <button
         className="w-full h-[57px] font-medium text-[#DB5940] rounded-lg border border-gray-6 font-inter normal text-base"
         type="button"
