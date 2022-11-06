@@ -1,4 +1,5 @@
 import { Instrument } from "@/types/api";
+import { useMemo } from "react";
 
 type Props = {
   stock: Instrument;
@@ -6,12 +7,13 @@ type Props = {
 };
 
 const StocksAssetItem = ({ stock, onClick }: Props) => {
-  let amountClassName = "";
-  if (stock.amount === 0) {
-    amountClassName = "";
-  } else {
-    amountClassName = stock.amount > 0 ? "text-[#5EB242]" : "text-[#DB5940]";
-  }
+  const amountClassName = useMemo(() => {
+    if (stock.amount === 0) {
+      return "text-[#8A8A8A]";
+    }
+    return stock.amount > 0 ? "text-[#5EB242]" : "text-[#DB5940]";
+  }, [stock.amount]);
+
   return (
     <button className="w-full" type="button" onClick={onClick}>
       <div className="flex items-center w-full">
@@ -30,7 +32,7 @@ const StocksAssetItem = ({ stock, onClick }: Props) => {
               {stock.symbol}
             </div>
             <div
-              className={`${amountClassName} font-normal text-[#8A8A8A] font-inter normal text-sm`}
+              className={`${amountClassName} font-normal  font-inter normal text-sm`}
             >
               {`${stock.amount}%`}
             </div>

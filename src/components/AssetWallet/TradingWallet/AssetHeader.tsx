@@ -1,3 +1,6 @@
+import Image from "next/image";
+import CryptoImg from "../../../assets/crypto.svg";
+
 const AssetHeader = () => {
   return (
     <div className="flex justify-between items-center">
@@ -7,7 +10,7 @@ const AssetHeader = () => {
       <div className="flex items-center">
         <button type="button">
           <div className="flex  justify-center items-center mr-[10px] w-[32px] h-[32px] font-normal text-[#262626] bg-[#F6F6F6] rounded-full">
-            C
+            <Image src={CryptoImg} />
           </div>
         </button>
         <button type="button">

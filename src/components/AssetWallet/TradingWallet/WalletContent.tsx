@@ -1,4 +1,6 @@
+import Image from "next/image";
 import WalletContentItem from "./WalletContentItem";
+import ExchangeArrowsImg from "../../../assets/exchange-arrows.svg";
 
 export type WalletContentMsg =
   | { type: "pay_with_item_clicked" }
@@ -20,7 +22,7 @@ const WalletContent = ({ onMsg }: Props) => {
         <div className="w-[228px] h-[1px] bg-[#EBEBEB]" />
         <button type="button" className="absolute right-[62px] bottom-[50px]">
           <div className="flex justify-center items-center w-[35px] h-[35px] text-[#262626] bg-[#F6F6F6] rounded-full">
-            ||
+            <Image src={ExchangeArrowsImg} />
           </div>
         </button>
         <div className="w-[35px] bg-[#EBEBEB]" />
