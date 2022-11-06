@@ -14,8 +14,7 @@ const Navigation = ({ mode, onMsg }: Props) => {
   const getSelectedClassName = (
     navMode: NavigationMode,
     modeToCompare: NavigationMode
-  ) =>
-    navMode === modeToCompare ? "text-[#262626] border-b-2" : "text-[#8A8A8A]";
+  ) => (navMode === modeToCompare ? "text-[#262626]" : "text-[#8A8A8A]");
 
   const buttonBaseClassName = "font-medium font-inter normal text-base";
 
@@ -29,6 +28,9 @@ const Navigation = ({ mode, onMsg }: Props) => {
         >
           Buy
         </button>
+        {mode === "BUY" && (
+          <div className="h-[2px] bg-[#262626] rounded-full" />
+        )}
       </div>
       <div className={`${getSelectedClassName(mode, "SELL")}`}>
         <button
@@ -40,6 +42,9 @@ const Navigation = ({ mode, onMsg }: Props) => {
         >
           Sell
         </button>
+        {mode === "SELL" && (
+          <div className="h-[2px] bg-[#262626] rounded-full" />
+        )}
       </div>
     </div>
   );
