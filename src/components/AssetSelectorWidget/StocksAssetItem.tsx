@@ -4,7 +4,7 @@ type Props = {
   onClick(): void;
 };
 
-const WalletContentItem = ({ title, asset, onClick }: Props) => {
+const StocksAssetItem = ({ title, asset, onClick }: Props) => {
   return (
     <button className="p-[20px] w-full" type="button" onClick={onClick}>
       <div className="flex justify-between items-center">
@@ -12,7 +12,7 @@ const WalletContentItem = ({ title, asset, onClick }: Props) => {
           <div className="mr-[20px] min-w-[64px] font-normal text-left text-[#262626] font-inter normal text-base">
             {title}
           </div>
-          <div className="mr-1 w-[27px]  h-[27px] text-[#EBEBEB] bg-white rounded-full border" />
+          <div className="mr-1 w-[25px]  h-[25px] text-[#EBEBEB] bg-white rounded-full border" />
           <div className="font-normal text-[#262626] font-inter normal text-base">
             {asset}
           </div>
@@ -34,4 +34,4 @@ const WalletContentItem = ({ title, asset, onClick }: Props) => {
   );
 };
 
-export default WalletContentItem;
+export default StocksAssetItem;

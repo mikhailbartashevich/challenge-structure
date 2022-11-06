@@ -10,20 +10,21 @@ type Props = {
 
 const WalletContent = ({ onMsg }: Props) => {
   return (
-    <div className="relative w-full text-gray-4 bg-white rounded-xl border border-gray-6">
+    <div className="relative w-[330px] text-gray-4 bg-white rounded-xl border border-gray-6">
       <WalletContentItem
         title="Buy"
         asset="BTC"
         onClick={() => onMsg({ type: "buy_item_clicked" })}
       />
-      <div className="flex absolute bottom-[45px] items-center">
-        <div className="mr-1 w-[228px] h-[1px] bg-[#EBEBEB]" />
-        <button type="button">
+      <div className="flex  items-center">
+        <div className="w-[228px] h-[1px] bg-[#EBEBEB]" />
+        <button type="button" className="absolute right-[62px] bottom-[50px]">
           <div className="flex justify-center items-center w-[35px] h-[35px] text-[#262626] bg-[#F6F6F6] rounded-full">
             ||
           </div>
         </button>
-        <div className="ml-1 w-[54px] h-[1px] bg-[#EBEBEB]" />
+        <div className="w-[35px] bg-[#EBEBEB]" />
+        <div className="ml-[6px] w-[55px] h-[1px] bg-[#EBEBEB]" />
       </div>
       <WalletContentItem
         title="Pay with"

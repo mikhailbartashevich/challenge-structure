@@ -75,7 +75,7 @@ const Homepage = () => {
           <div className="w-[780px] h-[455px] bg-gray-6 rounded-xl" />
 
           {/* Trade Placeholder */}
-          <div className="p-[25px] w-[380px] h-[455px] text-gray-4 bg-white rounded-xl border border-gray-6">
+          <div className="p-[25px] w-[380px] text-gray-4 bg-white rounded-xl border border-gray-6">
             <TradeWidget />
           </div>
         </div>
