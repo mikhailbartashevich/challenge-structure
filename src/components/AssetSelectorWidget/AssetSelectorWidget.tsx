@@ -22,7 +22,6 @@ const AssetSelectorWidget = ({ onMsg }: Props) => {
           className="flex justify-start items-center pl-[20px] w-full h-[54px] bg-[#F6F6F6] rounded-lg"
           type="text"
           placeholder="Search assets input"
-          value=""
         />
       </div>
       <div className="mb-[25px]" />

@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Instrument, APIResponse } from "@/types/api.d";
+import axios from "axios";
 
 export const TEST_RESULT = [
   {
@@ -113,12 +114,29 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse<APIResponse<Instrument>>
 ) => {
-  /** Finally, send a response back to our app */
-  return res
-    .status(200)
-    .setHeader("Cache-Control", "max-age=0, s-maxage=600")
-    .json({
-      success: true,
-      result: TEST_RESULT,
-    });
+  let result = [];
+  try {
+    const response = await axios.get(
+      "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+      {
+        headers: {
+          "X-CMC_PRO_API_KEY": "07274206-5abe-4447-8081-4a50671464a0",
+        },
+      }
+    );
+    result = response.data.data.map((coin) => ({
+      id: coin.id,
+      name: coin.name,
+      symbol: coin.symbol,
+      value: `$${Math.round(coin.quote.USD.price)}`,
+      amount: Math.floor(Math.random() * 100),
+    }));
+  } catch (e) {
+    result = [];
+  }
+
+  return res.status(200).setHeader("Cache-Control", "no-cache").json({
+    success: true,
+    result,
+  });
 };
